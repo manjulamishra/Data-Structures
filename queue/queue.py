@@ -7,10 +7,12 @@ class Queue:
 
   def enqueue(self, item):
     self.storage.insert(0,item)
-  
+    self.size +=1
   def dequeue(self): 
     if self.storage != []:
-      return self.storage.pop()
+      last_item = self.storage.pop()
+      self.size -=1
+      return last_item
 
   def len(self):
-    return len(self.storage)
+    return self.size
